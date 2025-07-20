@@ -1,0 +1,9 @@
+Haplotype combination代码
+
+将vcf按100kbwindow拆分，分开做格式转化和聚类分析
+其中涉及3个代码
+1将vcf按100kbwindow拆分
+针对每个vcf【窗口】
+2.将vcf转化为tsv的格式
+3.对tsv进行聚类
+4.修改为画图格式

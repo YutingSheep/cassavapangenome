@@ -1,0 +1,36 @@
+所有代码都需要
+
+#获得kinship的关系文件
+vcftools --gzvcf /home/wangnan/4.cassava/11.asm.AM560.aligment/ALL-new.vcf.gz --recode --stdout --keep FLA_CUL.name --min-alleles 2  --max-alleles 2 --max-missing 0.7 > input.vcf
+plink --vcf input.vcf --recode vcf-iid --out STEP1 --allow-extra-chr --const-fid --vcf-half-call m
+plink --vcf STEP1.vcf --out PLINK --const-fid --allow-extra-chr
+plink --bfile PLINK --genome
+/home/wangnan/Software/king -b PLINK.bed --related --degree 2
+
+IBD和IBD-NE分析
+
+java -jar /home/wangnan/Software/hap-ibd.jar \
+  gt=STEP03_ALL.missing.0.9.BEAGLE.vcf \
+  map=ALL.map \
+  out=output_prefix \
+  min-seed=0.1 \
+  min-extend=0.1 \
+  min-output=0.1 \
+  min-markers=20 \
+  nthreads=4 \
+  min-mac=1
+#ALL.map是按照这样的格式准备：
+chr01	chr01_500000	0.5	500000
+chr01	chr01_1000000	1.0	1000000
+chr01	chr01_1500000	1.5	1500000
+chr01	chr01_2000000	2.0	2000000
+chr01	chr01_2500000	2.5	2500000
+chr01	chr01_3000000	3.0	3000000
+chr01	chr01_3500000	3.5	3500000
+chr01	chr01_4000000	4.0	4000000
+chr01	chr01_4500000	4.5	4500000
+chr01	chr01_5000000	5.0	5000000
+
+IBD-NE分析
+zcat output_prefix.ibd.gz | java -jar /home/wangnan/Software/ibdne.23Apr20.ae9.jar map=ALL.map out=cassava_Ne mincm=1 gmax=100 filtersamples=false minregion=1
+

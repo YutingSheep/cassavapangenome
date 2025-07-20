@@ -1,11 +1,11 @@
 # Genome Annotation 
 
-- [TE annotation (EDTA)](#te-annotation-edta)
-- [Gene annotation (Helixer)](#gene-annotation-helixer)
+- [TE annotation](#te-annotation)
+- [Gene annotation](#gene-annotation)
 
 ------
 
-## TE annotation (EDTA)
+## TE annotation
 
 The [Extensive de novo TE Annotator](https://github.com/oushujun/EDTA) (EDTA) is developed for automated whole-genome *de-novo* TE annotation and benchmarking the annotation performance of TE libraries.
 
@@ -15,7 +15,7 @@ EDTA.pl --genome /public/user/database/cassava_genome/${i}_hap.fa --step all --o
 
 ------
 
-## Gene annotation (Helixer)
+## Gene annotation
 
 ![Gene_annotation_pipeline](./Genome_annotation.png)
 
