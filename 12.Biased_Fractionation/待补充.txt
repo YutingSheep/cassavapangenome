@@ -1,0 +1,1 @@
+SNP计算LF和HF区域的SFS
