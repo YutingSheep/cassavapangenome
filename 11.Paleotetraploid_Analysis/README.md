@@ -6,7 +6,6 @@
   - [All-against-all protein sequence self-alignment](#all-against-all-protein-sequence-self-alignment)
   - [Homologous gene pairs identification](#homologous-gene-pairs-identification)
   - [Ks peakfit](#ks-peakfit)
-  - [Evaluation of paleotetraploid event time](#evaluation-of-paleotetraploid-event-time)
 - [Karyotype reconstruction](#karyotype-reconstruction)
   - [All-against-all protein sequence alignment between cassava and Ricinus communis](#all-against-all-protein-sequence-alignment-between-cassava-and-ricinus-communis)
   - [Paleotetraploid homologous genes identification](#paleotetraploid-homologous-genes-identification)
