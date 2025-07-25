@@ -68,43 +68,6 @@ wgdi -kp ${i}_kp.conf
 wgdi -kf Ks_kf.conf
 ```
 
-### Evaluation of paleotetraploid event time
-
-We described the occurrence of cassava WGD events based on Ks distributions. We estimated the shared γ event in eudicots and characterized this event using the peak position of the Ks distribution in grapevine. To better define the timing of the WGD, we further corrected the Ks distributions based on the **grapevine γ event**, following the method of Wang et al. This method involved two steps: 1) correcting the Ks distributions for four species (cassava, *Ricinus communis*, *Hevea brasiliensis*, and *Vitis vinifera*); and 2) correcting the Ks distributions for pairwise species comparisons (*Ricinus communis*-cassava and *Ricinus communis*-*Hevea brasiliensis*). To estimate the timing of the most recent WGD event, we extracted the Ks value corresponding to the peak of the distribution and calculated the time using the formula:
-$$
-T = Ks/2r
-$$
-In our analysis, r = 4.89×10^(-9), where r was calculated based on Ks value associated with the γ event. 
-
-```Python
-Ks = 1.194135099
-t = 122 * 10**6  
- 
-r = Ks / (2 * t)
-print(r)
-#r=4.8939963073770485e-09
-
-t1 = 130 * 10**6
-Ks1 = t1 * 2 * r
-print(Ks1)
-
-Ks2 =  0.242480344
-t2 = Ks2 / (2 * r )
-print(t2)
-
-u = 0.242480344
-o = 0.030749417
-
-Ks_left = u - o * 1.96
-Ks_right = u + o * 1.96
-t_left = Ks_left / (2 * r )
-t_right = Ks_right / (2 * r )
-print(t_left)
-print(t_right)
-```
-
-
-
 ------
 
 ## Paleotetraploid karyotype reconstruction
