@@ -73,7 +73,7 @@ Explore the data, tools, and pipelines to study SV, haplotype evolution, and clo
 - Orthogroups analysis
 - Duplication events
 
-### [11. Paleotetraploidy Analysis](11.Paleotetraploid/README.md)
+### [11. Paleotetraploidy Analysis](11.Paleotetraploid_Analysis/README.md)
 - WGD detection
 - Karyotype reconstruction
 - Core genes identification
