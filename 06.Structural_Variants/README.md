@@ -141,7 +141,7 @@ svpack filter -l 50 ${i}.INDELs_SVs.vcf > ${i}.SVs.vcf.vcf
 #Filtering Indels (2-50bp)​
 bgzip ${i}.INDELs_SVs.vcf
 tabix -p vcf ${i}.INDELs_SVs.vcf.gz
-/home/wangnan/Software/vcfbub -i ${i}.INDELs_SVs.vcf.gz -a 50 -l 0 > ${i}.INDELs.vcf
+vcfbub -i ${i}.INDELs_SVs.vcf.gz -a 50 -l 0 > ${i}.INDELs.vcf
 #Statistics for multiallelic and variant counts​
 bcftools stats  -s - input.vcf > input.stat
 #Alternative, normalizing different VCF types with bcftools norm

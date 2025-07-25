@@ -4,7 +4,7 @@
 
 ## Project Introduction
 
-This repository hosts the code and resources for constructing a pangenome graph of cassava (*Manihot esculenta*), a clonally propagated staple crop feeding millions worldwide. By analyzing **115 diverse haplotypes**, we built a pangenome **2.6× larger** than the linear reference, revealing how clonal propagation preserves heterozygosity and structural variation (SV) through unique evolutionary mechanisms. 
+This repository hosts the code and resources for constructing a pangenome graph of cassava (*Manihot esculenta*), a clonally propagated staple crop feeding millions worldwide. By analyzing **115 diverse haplotypes**, we built a pangenome with **2.6-fold** more sequences than the linear reference genome, revealing how clonal propagation preserves heterozygosity and structural variants (SVs). 
 
 Explore the data, tools, and pipelines to study SV, haplotype evolution, and clonal genome dynamics. 
 
