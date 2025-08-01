@@ -19,7 +19,8 @@ Pangenome graph construction was performed independently for each  chromosome us
 ```shell
 # Input/output setup
 INPUT="haplotypes.fasta"
-OUTPUT="pangenome_graph"one-step PGGB, including Wfmash alignment、Seqwish graph construction and PGGB
+OUTPUT="pangenome_graph"
+#one-step PGGB, including Wfmash alignment、Seqwish graph construction and PGGB
 pggb -i in.pggb.fa.gz -p 90 -s 10000 -n 117 -k 47 -P 1,4,6,2,26,1 -O 0.001  -t 60 -V 'AM560' -o $PWD
 mkdir -p $OUTPUT
 ```
