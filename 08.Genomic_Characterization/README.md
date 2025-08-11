@@ -15,7 +15,8 @@ vcftools --vcf ../all.miss0.7.biallic.vcf --recode --indv ${sample} --stdout > $
 grep -v '0|0' ${sample}.vcf | grep -v '1|1' | grep -v './.' > ${sample}_het.vcf
 vcftools --vcf ${sample}_het.vcf --SNPdensity 200000 --out ${sample}
 awk -v OFS='\t' '$3 = $2 + 200000' ${sample}.snpden > ${sample}.snpden.2
-python merge_block.py  -i ${sample}.snpden.2 -t 2 > ${sample}.2.het_hom_region.txt #The merge_block.py script is included in the same directory as README.md
+python merge_block.py  -i ${sample}.snpden.2 -t 2 > ${sample}.2.het_hom_region.txt 
+#The merge_block.py script is included in the same directory as README.md
 ```
 
 ------

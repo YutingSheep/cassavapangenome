@@ -3,7 +3,6 @@
 - [Contig community network analysis](#contig-community-network-analysis)
 - [Hi-C validation of translocation events](#hi-c-validation-of-translocation-events)
 - [Breakpoint analysis and homologous regions](#breakpoint-analysis-and-homologous-regions)
-- [Synteny analysis](#synteny-analysis)
 
 ------
 
@@ -11,7 +10,7 @@
 
 We performed community analysis using all contig sequences by conducting all-to-all pairwise alignments with [wfmash](https://github.com/waveygang/wfmash). To accelerate processing, we implemented parallelized paired-contig comparisons. Alignment parameters were optimized using mash-estimated haplotype distances in cassava, applying the -m option to generate approximate mappings that retained ≥95% average nucleotide identity-capturing robust signals of homologous recombination. We then calculated the total_match_ratio scores - accounting for reference/query contig lengths and aligned regions. Low-scoring alignments and contigs shorter than 1 Mb were filtered out to enhance resolution.
 
-```
+```shell
 #Generate Alignments Using wfmash
 # Use wfmash with merge (-m) to align and merge contigs  
 wfmash -m reference.fa query.fa -o WFMASH.paf 
@@ -19,9 +18,9 @@ wfmash -m reference.fa query.fa -o WFMASH.paf
 python calculate_paf_alignment_to_Gephi_input.py \
     -i WFMASH.paf \  
     -o Filtered_signal_for_gephi.csv  
-#File Specification: Filtered_signal_for_gephi.csv​​
-​​#Purpose:​​ Input for Gephi network visualization.
-​​#Customizable Parameters:​​
+#File Specification: Filtered_signal_for_gephi.csv
+#Purpose: Input for Gephi network visualization.
+#Customizable Parameters:
 #Contig length filtering (adjustable via script parameters).
 #Edge weights (based on alignment scores/lengths).
 ```
@@ -67,18 +66,6 @@ To identify translocation breakpoints, we analyzed contigs spanning the chr01-ch
 ```
 makeblastdb -in s12HAchr01_Approximate_breakpoint_locations.fa -dbtype nucl -input_type fasta -out s12HA
 blastn -query s12HAchr02_Approximate_breakpoint_locations.fa -db s12HA -out result.txt -outfmt 6 -task blastn-short -word_size 7 -evalue 0.00001 -num_threads 4
-```
-
-
-
-------
-
-## Synteny analysis
-
-To characterize SVs in the cassava genome, including the inversion on chr01 and the translocation between chr01 and chr02, we developed a synteny analysis pipeline based on protein sequences. First, we performed orthogroups clustering of protein sequences from selective haplotypes using OrthoFinder. Next, we used [Genespace](https://github.com/jtlovell/GENESPACE) (v1.2.3) to integrate gene positional information and define syntenic blocks, requiring a minimum of five conserved orthologous genes as anchors. Gene pairs were formatted and visualized using [Linkview2](https://github.com/YangJianshun/LINKVIEW2). This protein-based framework reduces interference from non-coding sequence variation and enables robust detection of the inversion and translocation. The 1.8 Mb inversion on chr01 and the chr01-chr02 translocation both supported by ≥8 orthologous gene pairs, were highlighted in synteny maps.
-
-```
-#待补充[感觉可以删掉这个]
 ```
 
 

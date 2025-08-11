@@ -11,13 +11,12 @@ Haplotype-resolved assemblies for 57 cassava accessions were generated using HiF
 * [Contig sequence filtering](#contig-sequence-filtering)
 
 * [Haplotype-resolved scaffolding](#haplotype-resolved-scaffolding)
-
   * [Scaffolding two phased contigs separately](#scaffolding-two-phased-contigs-separately)
-
+  
   * [Combine the separately scaffolded haplotypes and perform Hi-C data realignment](#combine-the-separately-scaffolded-haplotypes-and-perform-hi-c-data-realignment)
-
+  
   * [Manual scaffold adjustment](#manual-scaffold-adjustment)
-
+  
 * [Assembly Result Visualization](#assembly-result-visualization)
 
 ## Assembly
@@ -36,7 +35,7 @@ hifiasm -t $threads -o TEST1-MS --primary -l3 --h1 ${Hic_1} --h2 ${Hic_2}  $CCS
 
 ## Contig sequence filtering
 
-Since the initial contig assembly contained plastid genome sequences, we downloaded previously published cassava mitochondrial (MK176513.1) and chloroplast (EU117376.1) genome sequences from NCBI (GCF_001659605.2) and annotated our assembled contigs based on sequence alignment using Minimap2. Contigs predominantly composed of plastid DNA were excluded. Satellite repeats were mainly identified using [Meryl](https://github.com/marbl/meryl) (v1.4.1) with 41-bp K-mers. GC content analysis was also calculated in identifying satellite contigs, as well as contigs with potential assembly algorithm bias or sequencing bias. After these filtering steps, the remaining contigs were used for downstream Hi-C scaffolding.
+Since the initial contig assembly contained plastid genome sequences, we downloaded previously published cassava mitochondrial (MK176513.1) and chloroplast (EU117376.1) genome sequences from NCBI (GCF_001659605.2) and annotated our assembled contigs based on sequence alignment using [Minimap2](https://github.com/lh3/minimap2). Contigs predominantly composed of plastid DNA were excluded. Satellite repeats were mainly identified using [Meryl](https://github.com/marbl/meryl) (v1.4.1) with 41-bp K-mers. GC content analysis was also calculated in identifying satellite contigs, as well as contigs with potential assembly algorithm bias or sequencing bias. After these filtering steps, the remaining contigs were used for downstream Hi-C scaffolding.
 
 ```shell
 #need minimap2 and meryl
@@ -86,8 +85,7 @@ cat ../sample-hap2/yahs.out_scaffolds_final.agp >> scaffold.joint.agp
 
 #Align Hi-C data to the assembly, remove PCR duplicates and filter out secondary and supplementary alignments
 bwa index contigsFasta
-bwa mem -5SP contigsFasta r1Reads r2Reads -t 9 | samblaster | samtools view - -@ 9 -S 
--h -b -F 3340 -o HiC.bam
+bwa mem -5SP contigsFasta r1Reads r2Reads -t 9 | samblaster | samtools view - -@ 9 -S -h -b -F 3340 -o HiC.bam
 
 rm -rf HiC.filtered.bam
 #Filter the alignments with MAPQ 0 (mapping quality =1) and NM 3 (edit distance < 3)

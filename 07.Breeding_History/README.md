@@ -17,7 +17,7 @@ vcftools --gzvcf variation_map.vcf.gz \
          --keep CUL.name \
          --min-alleles 2 --max-alleles 2 \
          --max-missing 0.7 > cul.vcf
-#PLINK Format Conversion​
+#PLINK Format Conversion
 plink --vcf cul.vcf \
       --recode vcf-iid \
       --out CUL \
@@ -44,7 +44,7 @@ Our assembly data achieved chromosome-level phasing. We aligned haplotype-resolv
 
 ```shell
 # Use BEAGLE to impute missing genotypes
-java -jar /home/wangnan/Software/beagle.27Feb25.75f.jar gt=cul.vcf out=cul.BEAGLE
+java -jar /home/user/Software/beagle.27Feb25.75f.jar gt=cul.vcf out=cul.BEAGLE
 
 # Run hap-ibd to calculate IBD segments
 java -jar hap-ibd.jar \
@@ -60,18 +60,18 @@ java -jar hap-ibd.jar \
 ```
 The ​​ALL.map file format​​ with 1 cM/Mb genetic map specification
 cat ALL.map | head -n10
-```
-chr01	chr01_500000	0.5	500000
-chr01	chr01_1000000	1.0	1000000
-chr01	chr01_1500000	1.5	1500000
-chr01	chr01_2000000	2.0	2000000
-chr01	chr01_2500000	2.5	2500000
-chr01	chr01_3000000	3.0	3000000
-chr01	chr01_3500000	3.5	3500000
-chr01	chr01_4000000	4.0	4000000
-chr01	chr01_4500000	4.5	4500000
-chr01	chr01_5000000	5.0	5000000
-```
+
+| chr01 | chr01_500000  | 0.5  | 500000  |
+| ----- | ------------- | ---- | ------- |
+| chr01 | chr01_1000000 | 1    | 1000000 |
+| chr01 | chr01_1500000 | 1.5  | 1500000 |
+| chr01 | chr01_2000000 | 2    | 2000000 |
+| chr01 | chr01_2500000 | 2.5  | 2500000 |
+| chr01 | chr01_3000000 | 3    | 3000000 |
+| chr01 | chr01_3500000 | 3.5  | 3500000 |
+| chr01 | chr01_4000000 | 4    | 4000000 |
+| chr01 | chr01_4500000 | 4.5  | 4500000 |
+| chr01 | chr01_5000000 | 5    | 5000000 |
 
 
 ------

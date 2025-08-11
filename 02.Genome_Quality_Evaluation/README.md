@@ -1,6 +1,6 @@
 # Genome Quality Evaluation
 
-We evaluated the quality of the assembled genomes, with a particular focus on haplotype phasing in heterozygous diploid assemblies. To systematically assess assembly quality, we categorized our evaluation into three key metrics: contiguity, completeness, and correctness. 
+We evaluated the quality of the assembled genomes, with a particular focus on haplotype phasing in heterozygous diploid assemblies. To systematically assess assembly quality, we categorized our evaluation into 3 Cs metrics: contiguity, completeness, and correctness. 
 
 - [Contiguity](#contiguity)
   - [N50 & L50 (QUAST)](#n50--l50-quast)
@@ -133,7 +133,7 @@ awk '{sum[$1] += $3 - $2} END {for (chr in sum) print chr, sum[chr]}' ./result/$
 awk '{sum[$1] += $3 - $2} END {for (chr in sum) print chr, sum[chr]}' ./result/${sample}.duplicated.bed > ./result/duplicated.stat
 awk '{sum[$1] += $3 - $2} END {for (chr in sum) print chr, sum[chr]}' ./result/${sample}.haploid.bed > ./result/haploid.stat
 
-python /home/scripts/flagger.stat.py ./result/haploid.stat  ./result/duplicated.stat ./result/error.stat ./result/collapsed.stat --output_csv ./result/${sample}_combined_stat.csv --output_plot ./result/${sample}_chromosome_statistics_bar_chart.png
+python ./flagger.stat.py ./result/haploid.stat  ./result/duplicated.stat ./result/error.stat ./result/collapsed.stat --output_csv ./result/${sample}_combined_stat.csv --output_plot ./result/${sample}_chromosome_statistics_bar_chart.png
 ```
 
 

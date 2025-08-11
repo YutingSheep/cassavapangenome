@@ -136,13 +136,13 @@ vg deconstruct -P AM560 -H "#" -e -a -t 40 PGGB.gfa > PGGB_AM560.vcf
 vcftools --vcf ${i}.vcf --recode --stdout --remove-indels > ${i}.only.SNPs.vcf
 #Filtering Non-SNPs
 vcftools --vcf ${i}.vcf --recode --stdout --keep-indels > ${i}.INDELs_SVs.vcf
-#Filtering SVs (>50bp)​
+#Filtering SVs (>50bp)
 svpack filter -l 50 ${i}.INDELs_SVs.vcf > ${i}.SVs.vcf.vcf
-#Filtering Indels (2-50bp)​
+#Filtering Indels (2-50bp)
 bgzip ${i}.INDELs_SVs.vcf
 tabix -p vcf ${i}.INDELs_SVs.vcf.gz
 vcfbub -i ${i}.INDELs_SVs.vcf.gz -a 50 -l 0 > ${i}.INDELs.vcf
-#Statistics for multiallelic and variant counts​
+#Statistics for multiallelic and variant counts
 bcftools stats  -s - input.vcf > input.stat
 #Alternative, normalizing different VCF types with bcftools norm
 bcftools norm -m- input.vcf -Ov -o output.vcf
