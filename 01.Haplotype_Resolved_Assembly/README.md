@@ -2,12 +2,13 @@
 
 Haplotype-resolved assemblies for 57 cassava accessions were generated using HiFi and Hi-C reads with [Hifiasm](https://github.com/chhylp123/hifiasm) (v0.19.8) under default parameters. Contigs derived from plasmid sequences or composed mainly of microsatellite repeats were filtered. Scaffolding was performed independently for each haplotype through two rounds of iterations to ensure the completeness and accuracy of the assembly. Hi-C reads were aligned to each haplotype using [Chromap](https://github.com/haowenz/chromap) (v0.2.5) with default settings, and contigs were ordered and oriented into 18 chromosome-scale pseudomolecules using [YaHS](https://github.com/c-zhou/yahs) (v1.1). Hi-C contact maps were visualized and manually curated to correct assembly errors and refine contig order using [Juicebox](https://github.com/aidenlab/Juicebox) (v2.20.00). To further validate phasing and scaffolding, Hi-C reads were aligned to the merged haplotypes, retaining high-quality contact signals using [HapHiC](https://github.com/zengxiaofei/HapHiC) (v1.0.2). For the reference genome of the third-generation inbred line AM560, primary contigs were assembled from ONT ultra-long reads, HiFi reads, and Hi-C data using Hifiasm and default parameters, followed by Hi-C-based scaffolding as described above.
 
+![Genome_assembly_pipeline](./Genome_assembly_pipeline.png)
+
 * [Assembly](#assembly)
-
   * [Reference genome assembly](#reference-genome-assembly)
-
+  
   * [Haplotype-resolved assembly](#haplotype-resolved-assembly)
-
+  
 * [Contig sequence filtering](#contig-sequence-filtering)
 
 * [Haplotype-resolved scaffolding](#haplotype-resolved-scaffolding)
